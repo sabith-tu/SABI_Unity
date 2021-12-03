@@ -9,7 +9,7 @@ public class PatrolUsingCorotine : MonoBehaviour
 	private void Start()
 	{
 		StartCoroutine(patrol());
-		Debug.Log("Started");
+		//Debug.Log("Started");
 	}
 
 	IEnumerator patrol()
@@ -18,7 +18,7 @@ public class PatrolUsingCorotine : MonoBehaviour
 		{
 			foreach (Transform loc in waypoins)
 			{
-				Debug.Log("Calling coroutine to First Location ");
+				//Debug.Log("Calling coroutine to First Location ");
 				yield return StartCoroutine(aiMoveTo(loc.position));
 			}
 		}
@@ -28,12 +28,12 @@ public class PatrolUsingCorotine : MonoBehaviour
 	{
 		while(transform.position != loc)
 		{
-			Debug.Log("Moving To First Location");
+			//Debug.Log("Moving To First Location");
 			//Vector3.Lerp(this.transform.position, loc, 10f );
 			transform.position = Vector3.MoveTowards(transform.position, loc, 5f * Time.deltaTime );
 			yield return null;
 		}
-		Debug.Log("First Location Complete");
+		//Debug.Log("First Location Complete");
 		
 	}
 
